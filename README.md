@@ -4,7 +4,7 @@ Its main features include single-parameter functions with automatic currying and
 
 ## Examples
 
-*factorial*
+**factorial**
 ```scm
 (define sub1 : (Int -> Int)
   (lambda (x : Int)
@@ -19,8 +19,8 @@ Its main features include single-parameter functions with automatic currying and
 (factorial 5)
 ```
 
-*tuples*
-```
+**tuples**
+```scm
 (define intPair : (Int, Int)
   (1, 2))
 
@@ -39,8 +39,8 @@ Its main features include single-parameter functions with automatic currying and
 (addPoints intPair intPair) // (2, 4)
 ```
 
-*automatic currying*
-```
+**automatic currying**
+```scm
 (define inc : (Int -> Int)
   (+ 1))
 
