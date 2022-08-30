@@ -62,7 +62,10 @@ typecheck ctx term = case term of
         case types !? index of
           Just ty -> pure ty
           Nothing -> throwError (TupleRangeError (V.length types) index)
-      _ -> throwError (MismatchError (TyProduct V.empty) tupleType "In 'get' tuple: ")
+      _ -> 
+        -- This is not quite right, I'm not sure how to recover the types 
+        -- within the tuple in case of an error
+        throwError (MismatchError (TyProduct V.empty) tupleType "In 'get' tuple: ")
   TmLit lit -> case lit of
     LiInt n -> pure TyInt
     LiBool b -> pure TyBool
@@ -97,7 +100,9 @@ typecheckApplication fnType argTypes =
               [] -> pure outputType
               _ -> typecheckApplication outputType tys
             else throwError (MismatchError outputType ty "In application: ")
-    _ -> throwError (MismatchError (TyFunction TyUnit TyUnit) fnType "Application not a function: ")
+    _ -> 
+      -- Not sure how to recover/report the expected input and ouput types in this case
+      throwError (MismatchError (TyFunction TyUnit TyUnit) fnType "Application not a function: ")
 
 typecheckProgram :: [Statement] -> IO (Either TypeError [Ty])
 typecheckProgram statements = do
