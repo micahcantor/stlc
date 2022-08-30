@@ -1,0 +1,5 @@
+(define add : (Int -> (Int -> Int))
+  (lambda (x : Int, y : Int)
+    (+ x y)))
+
+(add 3 4) // 7

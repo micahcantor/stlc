@@ -1,0 +1,8 @@
+(define not : (Bool -> Bool)
+  (lambda (boolean : Bool)
+    (if boolean
+      false
+      true)))
+
+(not true) // false
+(not false) // true

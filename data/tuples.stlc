@@ -1,0 +1,22 @@
+(define intPair : (Int, Int)
+  (1, 2))
+
+(define boolTriple : (Bool, Bool, Bool)
+  (true, false, true))
+
+(get intPair 1) // 2
+(get boolTriple 2) // true
+
+(define fst : ((Int, Int) -> Int)
+  (lambda (pair : (Int, Int))
+    (get pair 0)))
+
+(define snd : ((Int, Int) -> Int)
+  (lambda (pair : (Int, Int))
+    (get pair 1)))
+
+(define addPoints : ((Int, Int) -> ((Int, Int) -> (Int, Int)))
+  (lambda (p1 : (Int, Int), p2 : (Int, Int))
+    ((+ (fst p1) (fst p2)), (+ (snd p1) (snd p2)))))
+
+(addPoints intPair intPair) // (2, 4)

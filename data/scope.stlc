@@ -1,0 +1,11 @@
+(define foo : (Int -> (Int -> Int))
+  (lambda (x : Int)
+    (lambda (y : Int)
+      x)))
+
+(define bar : (Int -> (Int -> Int))
+  (lambda (x : Int, y : Int)
+    x))
+
+(foo 3 4) // 3
+(bar 4 5) // 4
