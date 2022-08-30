@@ -1,6 +1,6 @@
 This repository contains an implementation for a small, typed Scheme-like language based on the presentation of the simply typed lambda calculus in the book Types and Programming Languages.
 
-Its main features include single-parameter functions with automatic currying and product types (tuples). Some examples may be found below:
+It uses a straight-forward environment-passing style for the evaluator and typechecker rather than the substitution model used in TaPL. The environment is mutable to enable recursive bindings and `define` statements. Its main features include single-parameter functions with automatic currying and product types (tuples). Some examples may be found below:
 
 ## Examples
 
